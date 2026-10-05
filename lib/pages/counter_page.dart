@@ -13,6 +13,7 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,16 +25,16 @@ class _CounterPageState extends State<CounterPage> {
           Text(CounterProvider.of(context)?.state.value.toString() ?? '0'),
           IconButton(
             onPressed: () {
-              setState: ((){
+              setState((){
               CounterProvider.of(context)?.state.inc();
-              });
+            });
               print(CounterProvider.of(context)?.state.value);
  },
             icon: Icon(Icons.add),
           ),
           IconButton(
             onPressed: () {
-               setState: ((){
+              setState(() {
               CounterProvider.of(context)?.state.dec();
               });
               print(CounterProvider.of(context)?.state.value);

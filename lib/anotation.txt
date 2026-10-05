@@ -1,0 +1,15 @@
+widget stateless don'n can modify in the screen, for this rease is necessary to use 
+the stateful
+and to modify a state is necessary to use the method setstate
+
+
+first use to changenotify use create, but if you alread have something done, use value
+final product = Provider.of<Product>(
+      context,
+      listen: false,);//use to no reflexion something change 
+
+
+use to widget consume when you so need change something in some especific where
+
+cart_item.dart
+interestinng for use contnius and scalete of the app

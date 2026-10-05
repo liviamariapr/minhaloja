@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:myshop/data/dummy_data.dart';
 import 'package:myshop/models/product.dart';
-
-final dummyProducts = [
+class ProductList with ChangeNotifier{
+  List<Product> _items = [
     Product(
       id: 'p1',
       name: 'Red Shirt',
@@ -34,3 +36,35 @@ final dummyProducts = [
           'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Kupferpfanne_Sauteuse_%C3%A9vas%C3%A9e_konische_Kupfer-Kasserolle.jpg/330px-Kupferpfanne_Sauteuse_%C3%A9vas%C3%A9e_konische_Kupfer-Kasserolle.jpg?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail',
     ),
   ];
+ bool _showFavoriteOnly = false;
+
+  //Return a clone of the list
+  List<Product> get items => [..._items];
+  List<Product> get favoriteItems => 
+    _items.where((prod)=> prod.isFavorite).toList();
+  
+
+
+  void addProduct(Product product){
+    _items.add(product);
+    notifyListeners();
+  }
+
+}
+
+//Return a clone of the list
+  //List<Product> get items {
+   // if (_showFavoriteOnly){
+    //  return _items.where((prod)=>prod.isFavorite).toList();
+   // }
+   // return [..._items];
+ // }
+
+  ///void showFavoriteOnly (){
+  //  _showFavoriteOnly = true;
+  //  notifyListeners();
+ // }
+   //void showAll (){
+    //_showFavoriteOnly = false;
+    //notifyListeners();
+//  }
